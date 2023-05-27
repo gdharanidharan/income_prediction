@@ -11,6 +11,9 @@ demo.ipynb
 
 # Distribution / packaging
 .Python
+artifact
+data
+logs
 build/
 develop-eggs/
 dist/
