@@ -8,9 +8,9 @@ from sklearn.model_selection import train_test_split
 
 @dataclass
 class DataIngestionConfig:
-    train_data_path : str = os.path.join('artifact', 'train.csv')
-    test_data_path : str = os.path.join('artifact', 'test.csv')
-    raw_data_path : str = os.path.join('artifact', 'raw.csv')
+    train_data_path : str = os.path.join('artifact', 'data_ingestion', 'train.csv')
+    test_data_path : str = os.path.join('artifact', 'data_ingestion', 'test.csv')
+    raw_data_path : str = os.path.join('artifact', 'data_ingestion', 'raw.csv')
 
 class DataIngestion:
     def __init__(self):
@@ -18,7 +18,7 @@ class DataIngestion:
 
     def initiate_data_ingestion(self):
         try:
-            logging.info('Data Ingestion Started')
+            logging.info('Data Ingestion phase started')
 
             logging.info('Reading data from original path')
             data = pd.read_csv(r'data\income_cleandata.csv')
@@ -36,7 +36,7 @@ class DataIngestion:
             os.makedirs(os.path.dirname(self.ingestion_config.test_data_path), exist_ok=True)
             test_data.to_csv(self.ingestion_config.test_data_path, index=False, header=True)
 
-            logging.info('Data Ingestion Completed')
+            logging.info('Data Ingestion phase completed')
 
             return (self.ingestion_config.train_data_path, 
                     self.ingestion_config.test_data_path
@@ -44,8 +44,3 @@ class DataIngestion:
 
         except Exception as e:
             raise CustomException(e, sys)
-
-if __name__ == '__main__':
-        data_ingestion = DataIngestion()
-        data_ingestion.initiate_data_ingestion()
-
