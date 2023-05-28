@@ -12,6 +12,7 @@ demo.ipynb
 # Distribution / packaging
 .Python
 artifact
+notebook.ipynb
 data
 logs
 build/
