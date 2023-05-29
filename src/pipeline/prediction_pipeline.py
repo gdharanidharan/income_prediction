@@ -65,18 +65,18 @@ class CustomClass:
     def get_dataframe(self):
         try:
             custom_input = {
-                'age' : self.age,
-                'workclass': self.workclass,
-                'education_num': self.education_num,
-                'marital_status': self.marital_status,
-                'occupation': self.occupation,
-                'relationship': self.relationship,
-                'race': self.race,
-                'sex': self.sex,
-                'capital_gain': self.capital_gain,
-                'capital_loss': self.capital_loss,
-                'hours_per_week': self.hours_per_week,
-                'native_country': self.native_country
+                "age": [self.age],
+                "workclass": [self.workclass],
+                "education_num":[self.education_num],
+                "marital_status":[self.marital_status],
+                "occupation":[self.occupation],
+                "relationship":[self.relationship],
+                "race":[self.race],
+                "sex":[self.sex],
+                "capital_gain":[self.capital_gain],
+                "capital_loss":[self.capital_loss],
+                "hours_per_week":[self.hours_per_week],
+                "native_country":[self.native_country]
             }
 
             data = pd.DataFrame(custom_input)
